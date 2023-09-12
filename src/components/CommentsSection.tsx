@@ -35,7 +35,7 @@ export default async function CommentsSection({
       <hr className="w-full h-px my-6" />
 
       {/* TODO: Create Comment */}
-      <CreateComment />
+      <CreateComment postId={postId} />
 
       <div className="flex flex-col gap-y-4 mt-4">
         {comments
@@ -57,7 +57,12 @@ export default async function CommentsSection({
             return (
               <div key={topLevelComment.id} className="flex flex-col">
                 <div className="mb-2">
-                  <PostComment comment={topLevelComment} />
+                  <PostComment
+                    postId={postId}
+                    currentVote={topLevelVotesComment}
+                    votesAmt={topLevelCommentVotesAmt}
+                    comment={topLevelComment}
+                  />
                 </div>
               </div>
             );
